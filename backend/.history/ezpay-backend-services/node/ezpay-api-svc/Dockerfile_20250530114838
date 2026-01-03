@@ -1,0 +1,27 @@
+# Use your base image
+FROM node:16.15.0-buster-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files and lockfile
+COPY node/ezpay-api-svc/package.json ./ 
+COPY node/ezpay-api-svc/yarn.lock ./
+
+# Install dependencies
+RUN yarn install --ignore-engines
+
+# Copy proto files and scripts needed for generation
+COPY protos ./protos
+COPY node/ezpay-api-svc ./node/ezpay-api-svc
+
+# Set working directory to your service folder
+WORKDIR /app/node/ezpay-api-svc
+
+# Run proto generation scripts
+RUN yarn grpc:gen-js-docker && yarn grpc:gen-ts-docker
+
+# Verify generated files exist
+RUN ls -l ./src/code-gen/proto
+
+# Stop here to check output before proceeding further

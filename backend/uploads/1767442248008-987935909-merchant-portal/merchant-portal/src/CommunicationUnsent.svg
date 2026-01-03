@@ -1,0 +1,9 @@
+<svg id="mark_email_read_black_24dp" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+  <rect id="Rectangle_2980" data-name="Rectangle 2980" width="18" height="18" fill="none"/>
+  <path id="Path_3284" data-name="Path 3284" d="M9.608,15.412A5.32,5.32,0,0,1,17.216,10.6V5.522A1.526,1.526,0,0,0,15.695,4H3.522A1.526,1.526,0,0,0,2,5.522v9.13a1.526,1.526,0,0,0,1.522,1.522H9.669A5.047,5.047,0,0,1,9.608,15.412ZM3.522,5.522l6.087,3.8,6.087-3.8V7.043l-6.087,3.8-6.087-3.8Z" transform="translate(-0.478 -0.957)" fill="#276ef1"/>
+  <g id="Icon_feather-alert-circle" data-name="Icon feather-alert-circle" transform="translate(7.739 7.41)">
+    <path id="Path_3288" data-name="Path 3288" d="M9.117,6.059A3.059,3.059,0,1,1,6.059,3,3.059,3.059,0,0,1,9.117,6.059Z" fill="none" stroke="#276ef1" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_3289" data-name="Path 3289" d="M18,12v1.223" transform="translate(-11.941 -7.165)" fill="none" stroke="#276ef1" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_3290" data-name="Path 3290" d="M18,24h0" transform="translate(-11.941 -16.718)" fill="none" stroke="#276ef1" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+  </g>
+</svg>

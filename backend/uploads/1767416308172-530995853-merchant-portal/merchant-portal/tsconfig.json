@@ -1,0 +1,24 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.Test.ts",
+    "**/*.Spec.ts"
+  ],
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "./src",
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "module": "esnext",
+    "isolatedModules": true,
+    "jsx": "react-jsx"
+  }
+}

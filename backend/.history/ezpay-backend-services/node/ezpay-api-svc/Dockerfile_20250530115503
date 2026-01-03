@@ -1,0 +1,21 @@
+FROM node:16.15.0-buster-slim
+
+WORKDIR /app
+
+COPY node/ezpay-api-svc/package.json ./ 
+COPY node/ezpay-api-svc/yarn.lock ./
+
+# Install dependencies including grpc-tools
+RUN apt-get update && apt-get install -y build-essential python3 && rm -rf /var/lib/apt/lists/*
+RUN yarn install --ignore-engines
+
+COPY protos ./protos
+COPY node/ezpay-api-svc ./node/ezpay-api-svc
+
+WORKDIR /app/node/ezpay-api-svc
+
+# Make sure grpc-tools binaries are executable
+RUN chmod +x ./node_modules/grpc-tools/bin/protoc ./node_modules/grpc-tools/bin/grpc_node_plugin
+
+# Run proto generation
+RUN yarn grpc:gen-js-docker && yarn grpc:gen-ts-docker

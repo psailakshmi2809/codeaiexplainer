@@ -1,0 +1,26 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+export const MSAL_CLIENT_ID = `${process.env.REACT_APP_MSAL_CLIENTID}`;
+export const MSAL_AUTHORITY = `${process.env.REACT_APP_MSAL_AUTHORITY}`;
+export const MSAL_READ_SCOPE = `${process.env.REACT_APP_READ_SCOPE}`;
+export const MSAL_WRITE_SCOPE = `${process.env.REACT_APP_WRITE_SCOPE}`;
+export const REPORT_TIME_INTERVAL = `${process.env.REACT_APP_REPORT_TIME_INTERVAL}`;
+export const REPORT_TIME_LIMIT = `${process.env.REACT_APP_REPORT_TIME_LIMIT}`;
+export const ERP_PRODUCT_ID = `${process.env.REACT_APP_ERP_PRODUCT_ID}`;
+export const APTEAN_JS_SDK_URL = `${process.env.REACT_APP_APTEAN_JS_SDK_URL}`;
+export const APTEAN_API_SUBSCRIPTION_KEY = `${process.env.REACT_APP_APTEAN_API_SUBSCRIPTION_KEY}`;
+export const MUI_LICENSE_KEY = `${process.env.REACT_APP_MUI_LICENSE_KEY}`;
+export const PAYOUT_TIME_INTERVAL = `${process.env.REACT_APP_PAYOUT_TIME_INTERVAL || 1000}`;
+export const PTT_ONBOARD_IFRAME_URL = `${process.env.REACT_APP_PTT_ONBOARD_IFRAME_URL}`;
+export const PTT_ONBOARD_MESSAGE_ORIGIN = `${process.env.REACT_APP_PTT_ONBOARD_MESSAGE_ORIGIN}`;
+export const BYPASS_PTT_ONBOARDING = `${process.env.REACT_APP_BYPASS_PTT_ONBOARDING}`;
+export const APTEAN_IAM_CLIENT_ID = `${process.env.REACT_APP_ApteanIAM_ClientId}`;
+export const APTEAN_IAM_AUTHORITY = `${process.env.REACT_APP_ApteanIAM_AuthServerUrl}`;
+export const APTEAN_IAM_REALM = `${process.env.REACT_APP_ApteanIAM_Realm}`;
+export const APTEAN_IAM_READ_SCOPE = `${process.env.REACT_APP_ApteanIAM_Scope}`;
+export const APTEAN_IAM_WRITE_SCOPE = `${process.env.REACT_APP_ApteanIAM_Scope}`;
+export const SLO_LOCALSTORAGE_ID = 'canLogOutUserSID';
+export const SLO_POSTLOGOUT_URL = '/postlogout';
+export const SLO_FRONTCHANNELLOGOUT_URL = '/frontchannellogout';
+export const SSO_SESSIONSTORAGE_ID = `oidc.user:${APTEAN_IAM_AUTHORITY}/realms/${APTEAN_IAM_REALM}:${APTEAN_IAM_CLIENT_ID}`;
+export const EZPAY_API_URL = `${process.env.REACT_APP_EZPAY_API_ENDPOINT}`;
+export const AUTH_MODE = `${process.env.REACT_APP_AUTH_MODE}`;

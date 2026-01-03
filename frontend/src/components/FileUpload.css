@@ -1,0 +1,92 @@
+.file-upload-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.file-upload-area {
+  border: 2px dashed #4a9eff;
+  border-radius: 12px;
+  padding: 60px 40px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+}
+
+.file-upload-area:hover {
+  border-color: #667eea;
+  background: linear-gradient(135deg, #667eea25 0%, #764ba225 100%);
+  transform: translateY(-2px);
+}
+
+.file-upload-area.drag-active {
+  border-color: #667eea;
+  background: linear-gradient(135deg, #667eea35 0%, #764ba235 100%);
+  transform: scale(1.02);
+}
+
+.file-upload-area.uploading {
+  cursor: wait;
+  border-color: #ffa500;
+  background: linear-gradient(135deg, #ffa50015 0%, #ff634715 100%);
+}
+
+.upload-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.upload-prompt h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.upload-prompt p {
+  font-size: 16px;
+  color: #666;
+  margin: 8px 0;
+}
+
+.upload-hint {
+  font-size: 14px;
+  color: #999;
+  font-style: italic;
+}
+
+.upload-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.upload-status p {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4a9eff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

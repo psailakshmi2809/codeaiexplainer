@@ -1,0 +1,74 @@
+#
+# ---- Base ----
+FROM node:16.15.0-buster-slim AS base
+
+# Set working directory.
+WORKDIR /app
+
+# Copy initial files.
+
+COPY node/ezpay-api-svc/package.json ./
+COPY node/ezpay-api-svc/yarn.lock ./
+COPY node/ezpay-api-svc/.eslintrc ./
+COPY node/ezpay-api-svc/.eslintignore ./
+COPY node/ezpay-api-svc/tsconfig.json ./
+COPY protos ./protos
+
+#
+# ---- Dependencies ----
+FROM base as dependencies
+
+# Install ALL node_modules, including devDependencies
+RUN yarn install --ignore-engines
+
+#
+# ---- Build ----
+FROM dependencies as build
+
+# Copy the rest of the source.
+COPY . .
+
+# grpc code-gen
+RUN yarn grpc:gen-js-docker && yarn grpc:gen-ts-docker
+
+# Lint the code.
+RUN yarn lint
+
+# Transpile code (this will output to ./dist)
+RUN yarn build:tsc
+
+# Copy additional files to ./dist
+RUN mkdir ./dist/code-gen && mkdir ./dist/code-gen/proto
+RUN cp ./src/code-gen/proto/*.js ./dist/code-gen/proto
+
+#
+# ---- Test ----
+FROM build as tests
+
+# Fix 'JavaScript heap out of memory' issue
+ENV NODE_OPTIONS="--max-old-space-size=8192"
+
+# TODO: Currently the jest tests require image variables to be set. We will resvisit this approach.
+RUN yarn test:ci-skip-integration
+
+#
+# ---- Release ----
+FROM node:16.15.0-alpine3.14 as release
+
+# Copy all node_modules (not just production)
+COPY --from=dependencies /app/node_modules ./node_modules
+
+# Allow New Relic agent to run without a configuration file.
+ENV NEW_RELIC_NO_CONFIG_FILE=true
+
+# Copy transpiled code.
+COPY --from=build /app/dist/ ./
+
+# Rebuild binaries since initial install was on another linux os.
+RUN npm rebuild
+
+# Expose port 4000 as the service runs through this port.
+EXPOSE 4000
+
+# Start the app.
+ENTRYPOINT [ "node", "index.js" ]

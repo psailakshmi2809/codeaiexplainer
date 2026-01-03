@@ -1,0 +1,16 @@
+overwrite: true
+schema:
+  - #{GQL_SCHEMA_ENDPOINT}#:
+      headers:
+        x-ezpay-pmt: "e06047ea-6c4e-4229-afb8-3ff4f006bde8"
+        x-aptean-codegen: true
+documents: "src/gql/*.tsx"
+generates:
+  src/gql-types.generated.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"

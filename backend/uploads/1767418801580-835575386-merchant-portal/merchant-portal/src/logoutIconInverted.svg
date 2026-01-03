@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="Group_1" data-name="Group 1" transform="translate(-9 -9)">
+    <path id="ic_exit_to_app_24px" d="M26.027,3H13.562A3.558,3.558,0,0,0,10,6.556v7.111h3.562V6.556H26.027V31.444H13.562V24.333H10v7.111A3.558,3.558,0,0,0,13.562,35H26.027a3.569,3.569,0,0,0,3.562-3.556V6.556A3.569,3.569,0,0,0,26.027,3Z" transform="translate(11.412 6)" fill="#616161"/>
+    <path id="ic_exit_to_app_24px-2" data-name="ic_exit_to_app_24px" d="M14.415,22.251l-2.511,2.5L3,15.877,11.9,7l2.511,2.5L9.82,14.1H27.04v3.551H9.82Z" transform="translate(6 9.123)" fill="#616161"/>
+  </g>
+</svg>
